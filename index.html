@@ -1,126 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <link
-  rel="icon"
-  href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤠</text></svg>"
-  />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤠</text></svg>" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jayden Weaver</title>
   <style>
     :root {
-      --bg: #ffffff;
-      --fg: #2d3142;
-      --link: #ef8354;
+      /* Light Theme Defaults */
+      --bg: #f8f8f2;
+      --fg: #282a36;
+      --link: #bd5996;
+      /* Darker pink for better contrast on light */
+      --skill-bg: rgba(0, 0, 0, 0.05);
     }
+
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #2d3142;
-        --fg: #ffffff;
-        --link: #ef8354;
+        --bg: #282a36;
+        --fg: #f8f8f2;
+        --link: #ff79c6;
+        --skill-bg: rgba(255, 255, 255, 0.05);
       }
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      font-family: system-ui, sans-serif;
+      font-family: system-ui, -apple-system, sans-serif;
       font-weight: 200;
       background: var(--bg);
       color: var(--fg);
       line-height: 1.6;
+    }
+
+    /* Layout */
+    .layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: grid;
+      gap: 4rem;
+    }
+
+    @media (min-width: 850px) {
+      .layout {
+        grid-template-columns: 1fr 1.5fr;
+        padding: 5rem;
+        min-height: 100vh;
+      }
+
+      header {
+        position: sticky;
+        top: 5rem;
+        height: fit-content;
+      }
+    }
+
+    /* Header (Left Column) */
+    header {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+      gap: 1.5rem;
     }
 
     h1 {
-      font-size: 2.2rem;
-      margin: 0.5rem;
-      font-weight: 500;
+      font-size: 3rem;
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: -0.05em;
     }
 
-    h2 {
-      margin-top: 1rem;
-      font-weight: 400;
+    .bio {
+      font-size: 1.1rem;
+      margin: 0;
+      opacity: 0.9;
+      max-width: 30ch;
     }
 
-    p {
-      max-width: 25rem;
-      text-align: center;
-      margin-top: 0;
-      max-width: min(60vw, 25rem)
-    }
-
-    ul {
+    /* Social Links */
+    .social-links {
       list-style: none;
       padding: 0;
       display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
+      gap: 1rem;
       margin: 0;
+      flex-wrap: wrap;
     }
 
-    li a {
-      padding: 0.75rem;
-      color: var(--link);
+    .social-links a {
+      color: var(--fg);
       text-decoration: none;
       font-weight: 500;
-      border-bottom: 1px solid transparent;
-      border-radius: 0.5rem;
-      transition: box-shadow 0.6s ease;
+      font-size: 0.95rem;
+      opacity: 0.7;
+      transition: opacity 0.2s, color 0.2s;
     }
 
-    li a:hover {
-      box-shadow: 0 0 2px #ef8354,
-                  0 0 5px #ef8354,
-                  0 0 10px #ef8354,
-                  0 0 20px #ef8354;
+    .social-links a:hover {
+      opacity: 1;
+      color: var(--link);
     }
 
+    /* Main (Right Column) */
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      padding-top: 0.5rem;
+      /* Align with header title visually */
+    }
+
+    section h2 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 0 0 0.75rem 0;
+      opacity: 0.6;
+      font-weight: 600;
+    }
+
+    /* Experience & Education Items */
+    .timeline-item {
+      margin-bottom: 2.5rem;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-item h3 {
+      font-size: 1.1rem;
+      margin: 0;
+      font-weight: 600;
+      color: var(--fg);
+    }
+
+    .timeline-item .sub {
+      display: block;
+      font-size: 0.95rem;
+      margin-top: 0.25rem;
+      margin-bottom: 0.75rem;
+      opacity: 0.8;
+    }
+
+    .timeline-item .highlight {
+      color: var(--link);
+    }
+
+    .timeline-item .details {
+      font-size: 0.95rem;
+      opacity: 0.7;
+      line-height: 1.5;
+    }
+
+    /* Skills */
     .skills {
-      columns: 1;
-      -webkit-columns: 1;
-      -moz-columns: 1;
-      gap: 1.5rem;
-      max-width: min(80vw, 40rem);
-      margin-bottom: 2rem;
-      font-family: Menlo, Monaco, Consolas, monospace;
-      font-weight: 200;
+      list-style: none;
       padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
     }
 
     .skills li {
-      break-inside: avoid;
-      margin-bottom: 0.5rem;
+      background: var(--skill-bg);
+      padding: 0.4rem 0.8rem;
+      border-radius: 2rem;
+      font-size: 0.85rem;
+      color: var(--link);
+      font-family: inherit;
     }
   </style>
 </head>
+
 <body>
-      <h1>Hey, I'm Jayden.</h1>
-      <p>Software developer with a passion for creating fast, clean and scalable software.</p>
-      <h2>Technical Skills</h2>
-      <ul class="skills">
-        <li>JavaScript</li>
-        <li>TypeScript</li>
-        <li>Java</li>
-        <li>Rust</li>
-        <li>C++</li>
-        <li>React</li>
-        <li>Node.js</li>
-        <li>Express</li>
-        <li>PostgreSQL</li>
-        <li>Redis</li>
-        <li>Docker</li>
-        <li>AWS</li>
-        <li>Git</li>
-      </ul>
-      <ul>
+  <div class="layout">
+    <header>
+      <div>
+        <h1>Jayden Weaver</h1>
+        <p class="bio">Software developer with a passion for creating fast, clean, and scalable software.</p>
+      </div>
+
+      <ul class="social-links">
         <li><a href="https://github.com/jaydenweaver" target="_blank">GitHub</a></li>
         <li><a href="https://linkedin.com/in/jaydenweaver1" target="_blank">LinkedIn</a></li>
       </ul>
+    </header>
+
+    <main>
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="timeline-item">
+          <h3>Software Engineer <span class="highlight">@ Westpac Group</span></h3>
+          <span class="sub">Nov 2025 - Present • Gold Coast, QLD</span>
+          <div class="details">
+            • Scalable APIs and event-driven microservices (Kafka)<br>
+            • Automation infrastructure
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="timeline-item">
+          <h3>Queensland University of Technology (QUT)</h3>
+          <span class="sub">Expected 2026</span>
+          <div class="details">
+            Bachelor of Information Technology (Computer Science)<br>
+            Minor in Data-centric Computing<br>
+            <span class="highlight">Executive Dean's Commendation for Academic Excellence</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <ul class="skills">
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+          <li>Java</li>
+          <li>Python</li>
+          <li>React</li>
+          <li>Node.js</li>
+          <li>Spring Boot</li>
+          <li>FastAPI</li>
+          <li>PostgreSQL</li>
+          <li>Redis</li>
+          <li>Kafka</li>
+          <li>Docker</li>
+          <li>AWS</li>
+          <li>Git</li>
+        </ul>
+      </section>
+    </main>
+  </div>
 </body>
+
 </html>
