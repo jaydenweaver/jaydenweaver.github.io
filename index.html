@@ -1,247 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤠</text></svg>" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jayden Weaver</title>
-  <style>
-    :root {
-      /* Light: Warm Paper & Charcoal */
-      --bg: #faf9f5;
-      --fg: #383732;
-      --link: #d97757;
-      /* Earthy orange/terracotta */
-      --skill-bg: rgba(217, 119, 87, 0.12);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        /* Dark: Deep Charcoal & Sand */
-        --bg: #181816;
-        --fg: #f3f2ee;
-        --link: #e58c6e;
-        /* Lighter terracotta for contrast */
-        --skill-bg: rgba(229, 140, 110, 0.12);
-      }
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, sans-serif;
-      font-weight: 200;
-      background: var(--bg);
-      color: var(--fg);
-      line-height: 1.6;
-    }
-
-    /* Layout */
-    .layout {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 2rem;
-      display: grid;
-      gap: 4rem;
-    }
-
-    @media (min-width: 850px) {
-      .layout {
-        grid-template-columns: 1fr 1.5fr;
-        padding: 5rem;
-        min-height: 100vh;
-      }
-
-      header {
-        position: sticky;
-        top: 5rem;
-        height: fit-content;
-      }
-    }
-
-    /* Header (Left Column) */
-    header {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin: 0;
-      font-weight: 700;
-      letter-spacing: -0.05em;
-    }
-
-    .bio {
-      font-size: 1.1rem;
-      margin: 0;
-      opacity: 0.9;
-      max-width: 30ch;
-    }
-
-    /* Social Links */
-    .social-links {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      gap: 1rem;
-      margin: 0;
-      flex-wrap: wrap;
-    }
-
-    .social-links a {
-      color: var(--fg);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      opacity: 0.7;
-      transition: opacity 0.2s, color 0.2s;
-    }
-
-    .social-links a:hover {
-      opacity: 1;
-      color: var(--link);
-    }
-
-    /* Main (Right Column) */
-    main {
-      display: flex;
-      flex-direction: column;
-      gap: 4rem;
-      padding-top: 0.5rem;
-      /* Align with header title visually */
-    }
-
-    section h2 {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin: 0 0 0.75rem 0;
-      opacity: 0.6;
-      font-weight: 600;
-    }
-
-    /* Experience & Education Items */
-    .timeline-item {
-      margin-bottom: 2.5rem;
-    }
-
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .timeline-item h3 {
-      font-size: 1.1rem;
-      margin: 0;
-      font-weight: 600;
-      color: var(--fg);
-    }
-
-    .timeline-item .sub {
-      display: block;
-      font-size: 0.95rem;
-      margin-top: 0.25rem;
-      margin-bottom: 0.75rem;
-      opacity: 0.8;
-    }
-
-    .timeline-item .highlight {
-      color: var(--link);
-    }
-
-    .timeline-item .details {
-      font-size: 0.95rem;
-      opacity: 0.7;
-      line-height: 1.5;
-    }
-
-    /* Skills */
-    .skills {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .skills li {
-      background: var(--skill-bg);
-      padding: 0.4rem 0.8rem;
-      border-radius: 2rem;
-      font-size: 0.85rem;
-      color: var(--link);
-      font-family: inherit;
-    }
-  </style>
+<meta name="Author" content="Jayden Weaver">
+<meta name="Description" content="Resume for Jayden Weaver">
+<meta name="viewport" content="width=device-width">
+<meta name="text-scale" content="scale">
+<title>Jayden Weaver - Resume</title>
+<style type="text/css">body{font:.75em/1.325em "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,sans-serif;color:#333;max-width:600px;margin:0 auto;padding:1.125em;    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;font-size:.8125em}h1{font-size:1.125em;font-weight:400;text-align:center}address{text-align:right}h2{font-size:.8125em;border-bottom:.0625em solid #667}.entry{margin-bottom:.8125em}.entry-title{display:flex;justify-content:space-between}.entry-details{padding-right:1.125em;margin-top:.375em}ul{margin-top:.375em}.entry,.entry-details,.indent,ul{padding-left:1.125em}li{list-style:none;margin-bottom:.375em}a{color:#333}a.nounderline{text-decoration:none}</style>
 </head>
-
 <body>
-  <div class="layout">
-    <header>
-      <div>
-        <h1>Jayden Weaver</h1>
-        <p class="bio">Software developer with a passion for creating fast, clean, and scalable software.</p>
-      </div>
-
-      <ul class="social-links">
-        <li><a href="https://github.com/jaydenweaver" target="_blank">GitHub</a></li>
-        <li><a href="https://linkedin.com/in/jaydenweaver1" target="_blank">LinkedIn</a></li>
-      </ul>
-    </header>
-
-    <main>
-      <section id="experience">
-        <h2>Experience</h2>
-        <div class="timeline-item">
-          <h3>Software Engineer <span class="highlight">@ Westpac Group</span></h3>
-          <span class="sub">Nov 2025 - Present • Gold Coast, QLD</span>
-          <div class="details">
-            • Scalable APIs and event-driven microservices (Kafka)<br>
-            • Automation infrastructure
-          </div>
-        </div>
-      </section>
-
-      <section id="education">
-        <h2>Education</h2>
-        <div class="timeline-item">
-          <h3>Queensland University of Technology (QUT)</h3>
-          <span class="sub">Expected 2026</span>
-          <div class="details">
-            Bachelor of Information Technology (Computer Science)<br>
-            Minor in Data-centric Computing<br>
-            <span class="highlight">Executive Dean's Commendation for Academic Excellence</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills">
-        <h2>Skills</h2>
-        <ul class="skills">
-          <li>TypeScript</li>
-          <li>Java</li>
-          <li>Python</li>
-          <li>React</li>
-          <li>Node.js</li>
-          <li>Spring Boot</li>
-          <li>FastAPI</li>
-          <li>PostgreSQL</li>
-          <li>Redis</li>
-          <li>Kafka</li>
-          <li>Docker</li>
-          <li>AWS</li>
-          <li>Git</li>
-        </ul>
-      </section>
-    </main>
-  </div>
+<address>
+kaitojy@gmail.com<br>
+Gold Coast, QLD<br>
+</address>
+<h1>Jayden Weaver</h1>
+<section>
+<h2>Professional</h2>
+<div class="entry">
+<div class="entry-title">
+<strong>Software Engineer, Westpac</strong>
+<span>Nov 2025 - present</span>
+</div>
+<div class="entry-details">
+<ul>
+<li>
+Developed MFEs along with their APIs to enable new mortgage origination workflows for internal lenders.
+</li>
+<li>
+Resolved critical type errors in the Westpac UI framework, eliminating cascading failures for all consuming frontends.
+</li>
+<li>
+Uplifted platform automation infrastructure modules, improving developer experience and efficiency.
+</li>
+</ul>
+</div>
+</section>
+<section>
+<h2>Education</h2>
+<div class="entry">
+<div class="entry-title">
+<strong>Bachelor of Science in Computer Science</strong>
+<span>Expected Nov, 2026</span>
+</div>
+<div class="entry-details">
+Queensland University of Technology, Brisbane, QLD.
+<ul>
+<li>
+Executive Deans' Commendation for Academic Excellence
+</li>
+<li>
+Data-centric Computing minor
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<h2>Projects</h2>
+<div class="entry">
+<div class="entry-title">
+<strong>refrag</strong>
+</div>
+<div class="entry-details">
+<ul>
+<li>
+Zero-dependency, tree-shakeable React library for rendering HTML elements with GLSL shaders using the experimental HTML-in-Canvas <a href="https://github.com/WICG/html-in-canvas" target="_blank">spec</a> and WebGL.
+</li>
+<li>
+<a href="https://www.npmjs.com/package/refrag" target="_blank">npm registry</a> and <a href="https://github.com/jaydenweaver/refrag" target="_blank">GitHub</a>.
+</li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<h2>Skills</h2>
+<div class="entry">
+<div class="entry-title"></div>
+<div class="entry-details">
+<ul>
+<li>TypeScript, Java, Python, JavaScript</li>
+<li>React, Spring Boot, FastAPI, Node.js</li>
+<li>Kafka, AWS, Docker, Postman, Mockoon, PostgreSQL, MySQL</li>
+</ul>
+</div>
+</div>
+</section>
 </body>
-
 </html>
